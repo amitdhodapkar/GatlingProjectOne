@@ -1,0 +1,22 @@
+job:
+  name: MyFirstGatlingJob
+  vm-template: Basic Gatling Run Template
+  git:
+  - url: "https://github.com/amitdhodapkar/GatlingProjectOne.git"
+    branch: master
+    repo-name: origin
+  steps:
+  - shell:
+      script: "echo Build Number: $BUILD_NUMBER"
+  - maven:
+      goals: galing:test
+      pom-file: "*/pom.xml"
+  after:
+  - artifacts:
+      include: "*/target/*"
+  settings:
+    - discard-old:
+        days-to-keep-build: 5
+        builds-to-keep: 10
+        days-to-keep-artifacts: 5
+        artifacts-to-keep: 10
