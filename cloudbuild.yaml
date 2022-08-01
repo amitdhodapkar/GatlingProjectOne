@@ -15,5 +15,5 @@ steps:
 #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
 #  entrypoint: gcloud
 #  args: ['run', 'deploy', 'gatlingdemocloudrun', '--image', 'gcr.io/coral-airfoil-358015/gatlingprojectone', '--region', 'northamerica-northeast2']
-images:
-- gcr.io/coral-airfoil-358015/gatlingprojectone
+#images:
+#- gcr.io/coral-airfoil-358015/gatlingprojectone
