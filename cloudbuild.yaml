@@ -7,7 +7,7 @@ steps:
 # args: ['push', 'gcr.io/coral-airfoil-358015/gatlingprojectone']
 # Copy the container execution result to Cloud Storage
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  args: ['gsutil', 'cp', '-r', '/workspace/target', 'gs://gatlingtestdemo/' ]
+  args: ['gsutil', 'cp', '-r', './testGatling/target', 'gs://gatlingtestdemo/' ]
 # Deploy container image to Cloud Run
 #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
 #  entrypoint: gcloud
