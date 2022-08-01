@@ -3,11 +3,14 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/coral-airfoil-358015/gatlingprojectone', '.']
 # Push the container image to Container Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/coral-airfoil-358015/gatlingprojectone']
-# Deploy container image to Cloud Run
+#- name: 'gcr.io/cloud-builders/docker'
+# args: ['push', 'gcr.io/coral-airfoil-358015/gatlingprojectone']
+# Copy the container execution result to Cloud Storage
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args: ['run', 'deploy', 'gatlingdemocloudrun', '--image', 'gcr.io/coral-airfoil-358015/gatlingprojectone', '--region', 'northamerica-northeast2']
+  args: ['gsutil', 'cp', '-r', '/workspace/target', 'gs://gatlingtestdemo/' ]
+# Deploy container image to Cloud Run
+#- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#  entrypoint: gcloud
+#  args: ['run', 'deploy', 'gatlingdemocloudrun', '--image', 'gcr.io/coral-airfoil-358015/gatlingprojectone', '--region', 'northamerica-northeast2']
 images:
 - gcr.io/coral-airfoil-358015/gatlingprojectone
