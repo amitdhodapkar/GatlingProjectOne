@@ -1,7 +1,10 @@
 steps:
 # Build the container image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/coral-airfoil-358015/gatlingprojectone', '.']
+- name: 'maven'
+  entrypoint: 'mvn'
+  args: [ 'gatling:test' ]
+#- name: 'gcr.io/cloud-builders/docker'
+#  args: ['build', '-t', 'gcr.io/coral-airfoil-358015/gatlingprojectone', '.']
 # Push the container image to Container Registry
 #- name: 'gcr.io/cloud-builders/docker'
 # args: ['push', 'gcr.io/coral-airfoil-358015/gatlingprojectone']
